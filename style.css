@@ -1,0 +1,63 @@
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:'Courier New',monospace;color:#0f0}
+
+#lockScreen{position:fixed;inset:0;background:#000;display:flex;align-items:center;justify-content:center;z-index:9999;overflow-y:auto;padding:10px}
+
+.scanline{position:absolute;top:0;left:0;width:100%;height:2px;background:rgba(0,255,0,0.3);animation:scan 3s linear infinite;pointer-events:none;z-index:1}
+@keyframes scan{0%{top:0}100%{top:100%}}
+
+.noise{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");pointer-events:none;z-index:1}
+
+.content{text-align:center;padding:15px;max-width:650px;width:100%;z-index:2;animation:flicker 0.15s infinite;position:relative}
+
+@keyframes flicker{0%{opacity:1}50%{opacity:0.97}100%{opacity:1}}
+
+.skull{font-size:60px;animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+
+h1.glitch{font-size:1.8em;color:#f00;text-shadow:0 0 10px #f00,0 0 20px #f00,0 0 40px #f00;margin:10px 0;letter-spacing:3px;animation:glitch 0.3s infinite}
+@keyframes glitch{0%{transform:translate(0)}25%{transform:translate(-2px,2px)}50%{transform:translate(2px,-2px)}75%{transform:translate(-2px,-2px)}100%{transform:translate(0)}}
+
+.sub{color:#f00;font-size:0.8em;margin-bottom:10px;letter-spacing:1px}
+
+.timer{font-size:2.5em;color:#0f0;text-shadow:0 0 20px #0f0;margin:10px 0;font-weight:bold;animation:timerPulse 1s infinite}
+@keyframes timerPulse{0%,100%{opacity:1}50%{opacity:0.6}}
+
+.device-panel,.encrypt-panel{background:rgba(0,255,0,0.03);border:1px solid #0f0;border-radius:8px;padding:12px;margin:10px 0;text-align:left;box-shadow:0 0 15px rgba(0,255,0,0.2)}
+
+.panel-title{color:#0f0;font-weight:bold;font-size:0.85em;margin-bottom:10px;letter-spacing:1px;border-bottom:1px solid #0f0;padding-bottom:5px}
+
+.info-grid{display:grid;grid-template-columns:1fr;gap:6px}
+.info-row{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(0,255,0,0.1);font-size:0.75em}
+.info-row:last-child{border-bottom:none}
+.info-row .k{color:#0f0;opacity:0.7}
+.info-row .v{color:#0f0;font-weight:bold;text-align:right;max-width:60%;word-break:break-word}
+
+.encrypt-panel p{margin:4px 0;font-size:0.78em;color:#0f0}
+.encrypt-panel .red{color:#f00;font-weight:bold;animation:blink 0.8s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+
+.fake-terminal{background:#000;border:1px solid #0f0;padding:8px;margin:10px 0;height:100px;overflow:hidden;text-align:left;font-size:0.7em;color:#0f0}
+
+.buttons{margin-top:15px}
+.btn-panic{padding:14px 35px;background:#f00;color:#fff;border:none;border-radius:8px;font-size:1em;font-weight:bold;cursor:pointer;box-shadow:0 0 20px #f00;animation:btnPulse 1.5s infinite}
+@keyframes btnPulse{0%,100%{box-shadow:0 0 20px #f00}50%{box-shadow:0 0 40px #f00,0 0 60px #f00}}
+
+.hint{color:#666;font-size:0.7em;margin-top:12px}
+
+#panicScreen{position:fixed;inset:0;background:#0a0a1a;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:25px;text-align:center;z-index:10000;overflow-y:auto}
+.panic-content{max-width:500px}
+.emoji-big{font-size:70px;margin-bottom:15px}
+#panicScreen h1{font-size:1.6em;color:#00ff88;margin-bottom:15px}
+#panicScreen p{margin:8px 0;color:#ccc;font-size:0.9em;line-height:1.5}
+.warning{color:#ff6b6b;font-weight:bold;margin:15px 0}
+.data-shown{background:#1a1a2e;border-radius:10px;padding:15px;margin:15px 0;text-align:left;font-size:0.85em}
+.data-shown ul{margin-left:20px;margin-top:8px}
+.data-shown li{margin:5px 0;color:#bbb}
+#panicScreen button{margin-top:20px;padding:14px 40px;background:#00ff88;color:#000;border:none;border-radius:10px;font-weight:bold;font-size:1em;cursor:pointer}
+
+@media(max-width:500px){
+  h1.glitch{font-size:1.4em}
+  .timer{font-size:2em}
+  .skull{font-size:50px}
+}

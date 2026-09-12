@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>SYSTEM LOCKED</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="lockScreen">
+  <div class="scanline"></div>
+  <div class="noise"></div>
+
+  <div class="content">
+    <div class="skull">💀</div>
+    <h1 class="glitch" data-text="SYSTEM LOCKED">SYSTEM LOCKED</h1>
+    <p class="sub">⚠️ YOUR DEVICE HAS BEEN ENCRYPTED ⚠️</p>
+
+    <div class="timer">
+      <span id="countdown">10:00</span>
+    </div>
+
+    <!-- INFO DEVICE -->
+    <div class="device-panel">
+      <div class="panel-title">🖥️ TARGET INFORMATION</div>
+      <div class="info-grid">
+        <div class="info-row"><span class="k">📱 Device</span><span class="v" id="devName">Detecting...</span></div>
+        <div class="info-row"><span class="k">💻 OS</span><span class="v" id="devOS">Detecting...</span></div>
+        <div class="info-row"><span class="k">🌐 Browser</span><span class="v" id="devBrowser">Detecting...</span></div>
+        <div class="info-row"><span class="k">📍 IP Address</span><span class="v" id="devIP">Detecting...</span></div>
+        <div class="info-row"><span class="k">🌍 Location</span><span class="v" id="devLoc">Detecting...</span></div>
+        <div class="info-row"><span class="k">📡 Provider</span><span class="v" id="devISP">Detecting...</span></div>
+        <div class="info-row"><span class="k">🖥️ Screen</span><span class="v" id="devScreen">Detecting...</span></div>
+        <div class="info-row"><span class="k">🔋 Battery</span><span class="v" id="devBattery">Detecting...</span></div>
+        <div class="info-row"><span class="k">🕐 Timezone</span><span class="v" id="devTZ">Detecting...</span></div>
+        <div class="info-row"><span class="k">🌐 Language</span><span class="v" id="devLang">Detecting...</span></div>
+        <div class="info-row"><span class="k">⚙️ CPU Cores</span><span class="v" id="devCPU">Detecting...</span></div>
+        <div class="info-row"><span class="k">🧠 RAM</span><span class="v" id="devRAM">Detecting...</span></div>
+      </div>
+    </div>
+
+    <!-- INFO ENKRIPSI -->
+    <div class="encrypt-panel">
+      <div class="panel-title">🔐 ENCRYPTION STATUS</div>
+      <p>📁 Files encrypted: <span id="fileCount">1,247</span></p>
+      <p>🔑 Encryption: AES-256 + RSA-4096</p>
+      <p>💰 Ransom: 0.5 BTC</p>
+      <p>⏰ Time left: <span id="timeLeft">10:00</span></p>
+      <p>💀 Status: <span id="status" class="red">LOCKED</span></p>
+    </div>
+
+    <div class="fake-terminal" id="terminal"></div>
+
+    <div class="buttons">
+      <button class="btn-panic" onclick="panicMode()">🆘 PANIC BUTTON</button>
+    </div>
+
+    <p class="hint">💡 Klik PANIC BUTTON atau restart HP untuk keluar</p>
+  </div>
+</div>
+
+<div id="panicScreen" style="display:none;">
+  <div class="panic-content">
+    <div class="emoji-big">😅</div>
+    <h1>IT'S JUST A PRANK!</h1>
+    <p>HP lu <b>AMAN</b>, gak ada yang ke-hack.</p>
+    <p>Tapi inget: <b>ransomware asli beneran ada</b> dan bisa ngerusak HP lu.</p>
+    <p class="warning">⚠️ Jangan asal klik link dari orang tak dikenal!</p>
+
+    <div class="data-shown">
+      <p>📊 Data yang barusan ditampilkan:</p>
+      <ul>
+        <li>Semua info itu <b>dibaca dari browser lu sendiri</b></li>
+        <li><b>GAK ada yang dikirim ke server</b></li>
+        <li>Website jahat bisa liat info ini</li>
+      </ul>
+    </div>
+
+    <button onclick="closePrank()">✅ TUTUP</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
